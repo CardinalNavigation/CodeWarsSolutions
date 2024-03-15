@@ -3,22 +3,19 @@
  * a new list with the strings filtered out.
  */
 
-function filter_list(l) {
+function filterList(l) {
   // Return a new array with the strings filtered out
   let numberArray=[]
   for (let i=0; i < l.length; i++){
     if ((typeof l[i])=='number'){
         numberArray.push(l[i])
-        console.log(l[i])
-        console.log(numberArray)
     }
-    console.log(l[i])
   }
   return numberArray
 }
 
-module.exports = filter_list;
+module.exports = filterList;
 
 
-console.log(filter_list([1,2,'a','b']))
+// console.log(filter_list([1,2,'a','b']))
 
