@@ -8,15 +8,102 @@
 
 // Happy Coding!
 
-function squareDigits(num){
-    let numberString=String(num)
-    let newNumber=""
-    for (let i=0 ; i < numberString.length; i++){
-      newNumber+=numberString[i]**2
-    }
-    
-    return newNumber
+function squareDigits(num) {
+  let numberString = String(num);
+  let newNumber = "";
+  for (let i = 0; i < numberString.length; i++) {
+    newNumber += numberString[i] ** 2;
   }
-  
-  console.log(squareDigits(9119))
-  console.log(squareDigits(765))
+
+  return newNumber;
+}
+
+console.log(squareDigits(9119));
+console.log(squareDigits(765));
+
+/** DESCRIPTION:
+You walk in a maze. 
+You need to reach the exit through many rooms.
+These rooms are in a straight line.
+
+You can only walk in the dark. 
+Otherwise, you will be caught by the enemy.
+
+Your trouble is that some rooms have light bulbs. 
+If the light bulb is bright when you enter the room. 
+You were caught by the enemy.
+
+Fortunately, the status of these bulbs (on/off) is aoto-switched every minute.
+So you have a chance to go through the maze.
+
+Task
+Let's us use a string map to represent these rooms， 
+like this: "xo oxox".
+
+"x" means there is a bulb in the room, and its initial status is off;
+"o" means there is a bulb in the room, and its initial status is on;
+" "(space) means a room without bulb, it's always dark.
+
+Your task is to determine if you can go through the maze. 
+Return true if you can, false otherwise.
+
+Note
+Your initial position is the most left
+the exit position is the most right.
+
+Your moving speed is 1 minute per step. 
+You can not stop before you start your moving until you reach the exit.
+
+Examples
+For map = "xo oxox". The output should be true.
+
+step 0 :  xo oxox
+          ^ <--------You are here
+step 1 :  ox xoxo
+           ^ <--------You are here
+step 2 :  xo oxox
+            ^ <--------You are here
+step 3 :  ox xoxo
+             ^ <--------You are here
+step 4 :  xo oxox
+              ^ <--------You are here
+step 5 :  ox xoxo
+               ^ <--------You are here
+step 6 :  xo oxox
+                ^ <--------You are here
+step 7 :  ox xoxo
+                 ^ <--------You've go through the maze :)
+For map = "xo  oxox". The output should be false.
+
+step 0 :  xo  oxox
+          ^ <--------You are here
+step 1 :  ox  xoxo
+           ^ <--------You are here
+step 2 :  xo  oxox
+            ^ <--------You are here
+step 3 :  ox  xoxo
+             ^ <--------You are here
+step 4 :  xo  oxox
+              ^ <--------You were caught by the enemy :(
+Happy Coding ^_^
+*/
+
+function bulbMaze(maze) {
+  //coding and coding..
+  let hidden = true;
+  for (let minute = 0; minute < maze.length; minute++) {
+    if (maze[minute] === " ") {
+      hidden = true;
+    } else if (minute % 2 === 0 && maze[minute] === "x") {
+      hidden = true;
+    } else if (minute % 2 !== 0 && maze[minute] === "o") {
+      hidden = true;
+    } else {
+      return false;
+    }
+  }
+  return hidden;
+}
+
+console.log(bulbMaze("xo oxox"));
+console.log(bulbMaze("xooxxo"));
