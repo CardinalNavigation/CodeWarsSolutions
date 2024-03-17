@@ -107,3 +107,26 @@ function bulbMaze(maze) {
 
 console.log(bulbMaze("xo oxox"));
 console.log(bulbMaze("xooxxo"));
+
+/**
+ * Kevin is noticing his space run out! 
+ * Write a function that removes the spaces from the values 
+ * and returns an array showing the space decreasing.
+For example, running this function on the array 
+['i', 'have','no','space'] would produce 
+['i','ihave','ihaveno','ihavenospace']
+ */
+
+
+function spacey(array){
+    let newWord=""
+    let newArray=[]
+    console.log(array)
+    for (let i=0; i < array.length; i++){
+      console.log(array[i])
+      newWord+=array[i]
+      newArray.push(newWord)
+    }
+    return newArray
+  }
+  console.log(spacey(['kevin', 'has','no','space']))
