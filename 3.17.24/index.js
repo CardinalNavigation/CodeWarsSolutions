@@ -117,16 +117,33 @@ For example, running this function on the array
 ['i','ihave','ihaveno','ihavenospace']
  */
 
+// function spacey(array){
+//     let newWord=""
+//     let newArray=[]
+//     console.log(array)
+//     for (let i=0; i < array.length; i++){
+//       console.log(array[i])
+//       newWord+=array[i]
+//       newArray.push(newWord)
+//     }
+//     return newArray
+//   }
+//   console.log(spacey(['kevin', 'has','no','space']))
 
-function spacey(array){
-    let newWord=""
-    let newArray=[]
-    console.log(array)
-    for (let i=0; i < array.length; i++){
-      console.log(array[i])
-      newWord+=array[i]
-      newArray.push(newWord)
+function solution(str, ending) {
+  // TODO: complete
+  let match = false;
+  let stringMatch = "";
+  for (let i = 0; i < str.length; i++) {
+    for (let j=0; j < ending.length; j++){
+      if (str[i] === ending[j]) {
+        stringMatch = stringMatch + str[i];
+        match = true;
+      }
     }
-    return newArray
   }
-  console.log(spacey(['kevin', 'has','no','space']))
+  return match
+}
+
+console.log(solution("abcde", "cde"));
+// console.log(solution('abcde', 'abc'))

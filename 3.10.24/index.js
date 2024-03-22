@@ -38,4 +38,6 @@ function moveZeros(arr) {
   return [...newArray, ...zeroArray]
 }
 
-console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
+// console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
+
+module.exports = moveZeros;
